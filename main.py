@@ -17,3 +17,25 @@ if __name__ == '__main__':
         for j in gen:
             print(j, end=' ')
         print()
+
+
+
+
+
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f'Время выполнения функции {func.__name__}: {end_time - start_time} сек.')
+        return result
+    return wrapper
+
+@timer
+def some_function(*args, **kwargs):
+    # .. код функции
+    pass
+#декораторы это когда мы можем менять поведение функций или классов не меняя их
+
